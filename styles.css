@@ -1,0 +1,94 @@
+:root {
+  --light: #f0d9b5;
+  --dark: #b58863;
+  --highlight: #f6f669;
+  --selected: #ffdd57;
+  --text: #1f2937;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  color: var(--text);
+  background: #f8fafc;
+}
+
+.container {
+  max-width: 760px;
+  margin: 20px auto;
+  padding: 16px;
+}
+
+h1 {
+  margin: 0 0 12px;
+}
+
+.hud {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.controls button {
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: #fff;
+  padding: 10px 14px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.board {
+  width: min(90vw, 640px);
+  height: min(90vw, 640px);
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  border: 3px solid #374151;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.square {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(24px, 5vw, 48px);
+  user-select: none;
+  cursor: pointer;
+}
+
+.square.light {
+  background: var(--light);
+}
+
+.square.dark {
+  background: var(--dark);
+}
+
+.square.selected {
+  outline: 4px solid var(--selected);
+  outline-offset: -4px;
+}
+
+.square.legal::after {
+  content: "";
+  width: 24%;
+  height: 24%;
+  border-radius: 50%;
+  background: rgba(17, 24, 39, 0.35);
+  position: absolute;
+}
+
+.square {
+  position: relative;
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 12px;
+  }
+}
